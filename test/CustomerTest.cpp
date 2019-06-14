@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include <Customer.h>
+#include "../src/Customer.h"
 
 TEST(ExampleTest, simple) {
    // Code

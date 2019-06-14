@@ -1,18 +1,10 @@
-# Note: CMake support is community-based. The maintainers do not use CMake
-# internally.
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.13)
 project(lab5_refactoring)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
-include_directories(src)
-include(CTest)
+add_executable(lab5 src/main.cpp src/Customer.cpp src/Customer.h src/Movie.cpp src/Movie.h src/Rental.h src/Rental.cpp)
 
-if (CMAKE_VERSION VERSION_LESS 3.2)
-    set(UPDATE_DISCONNECTED_IF_AVAILABLE "")
-else()
-    set(UPDATE_DISCONNECTED_IF_AVAILABLE "UPDATE_DISCONNECTED 1")
-endif()
 
 include(DownloadProject.cmake)
 download_project(PROJ                googletest
@@ -20,6 +12,7 @@ download_project(PROJ                googletest
         GIT_TAG             master
         ${UPDATE_DISCONNECTED_IF_AVAILABLE}
         )
+
 
 # Prevent GoogleTest from overriding our compiler/linker options
 # when building with Visual Studio
@@ -36,12 +29,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
             "${gmock_SOURCE_DIR}/include")
 endif()
 
-add_executable(lab5_refactoring
-        src/Customer.cpp
-        src/Customer.h
-        src/main.cpp
-        src/Movie.cpp
-        src/Movie.h
-        src/Rental.h test/ExampleTest.cpp)
-cmake_minimum_required(VERSION 3.14)
-target_link_libraries(lab5_refactoring gtest gmock_main)
+# Trivial example using gtest and gmock
+add_executable(lab5-test src/Customer.cpp src/Customer.h src/Movie.cpp src/Movie.h src/Rental.h test/CustomerTest.cpp src/Rental.cpp)
+
+target_link_libraries(lab5-test gtest gmock_main)
