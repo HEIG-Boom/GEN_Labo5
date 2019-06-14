@@ -1,3 +1,5 @@
+#include <utility>
+
 // Rental.h
 #ifndef RENTAL_H
 #define RENTAL_H
@@ -6,7 +8,7 @@
 
 class Rental {
 public:
-   Rental(const Movie& movie, int daysRented);
+   Rental(Movie movie, int daysRented);
 
    int getDaysRented() const;
 
@@ -17,8 +19,8 @@ private:
    int _daysRented;
 };
 
-inline Rental::Rental(const Movie& movie, int daysRented)
-      : _movie(movie),
+inline Rental::Rental(Movie movie, int daysRented)
+      : _movie(std::move(movie)),
         _daysRented(daysRented) {}
 
 inline int Rental::getDaysRented() const {
