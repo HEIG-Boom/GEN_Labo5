@@ -42,8 +42,6 @@ __pycache__/
 
 # CLion
 cmake-build-debug/
-CMakeLists.txt
-CMakeLists.txt.in
 
 # Xcode
 *.xcodeproj/
