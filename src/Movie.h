@@ -23,19 +23,4 @@ private:
    int _priceCode;
 };
 
-inline Movie::Movie(std::string title, int priceCode)
-      : _title(std::move(title)), _priceCode(priceCode) {}
-
-inline int Movie::getPriceCode() const {
-   return _priceCode;
-}
-
-inline void Movie::setPriceCode(int arg) {
-   _priceCode = arg;
-}
-
-inline std::string Movie::getTitle() const {
-   return _title;
-}
-
 #endif // MOVIE_H

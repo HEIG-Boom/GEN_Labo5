@@ -23,15 +23,4 @@ private:
    std::vector<Rental> _rentals;
 };
 
-inline Customer::Customer(std::string name)
-      : _name(std::move(name)) {}
-
-inline void Customer::addRental(const Rental& arg) {
-   _rentals.push_back(arg);
-}
-
-inline std::string Customer::getName() const {
-   return _name;
-}
-
 #endif // CUSTOMER_H
