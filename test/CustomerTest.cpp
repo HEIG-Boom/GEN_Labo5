@@ -1,12 +1,8 @@
-//
-// Created by luc on 29.05.19.
-//
-
 #include "gtest/gtest.h"
 #include "../src/Customer.h"
 
 // Integration test for the Customer.statement() member function
-TEST(ExampleTest, simple) {
+TEST(CustomerTest, StatementTest) {
    Customer cust("Violette");
 
    cust.addRental(Rental(Movie("Borat"), 4));
